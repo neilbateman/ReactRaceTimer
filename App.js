@@ -44,6 +44,13 @@ export default class App extends React.Component {
         clearInterval(this.state.timer);
         this.setState({startDisable : false})
     }
+    onButtonClear = () => {
+        this.setState({
+            timer: null,
+            min_Counter: '00',
+            sec_Counter: '00',
+        });
+    }
 
     render(){  
         return (
