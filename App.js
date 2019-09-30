@@ -40,7 +40,10 @@ export default class App extends React.Component {
         this.setState({ timer });
         this.setState({startDisable : true})
     }
-
+    onButtonStop = () => {
+        clearInterval(this.state.timer);
+        this.setState({startDisable : false})
+    }
 
     render(){  
         return (
