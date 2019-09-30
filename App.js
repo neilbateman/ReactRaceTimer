@@ -46,7 +46,7 @@ export default class App extends React.Component {
 
     render(){  
         return (
-        <View style={styles.container}>
+        <View style={styles.MainContainer}>
           <Text style={styles.counterText}>{this.state.min_Counter} : {this.state.sec_Counter}</Text>
           <TouchableOpacity
             onPress={this.onButtonStart}
