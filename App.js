@@ -52,12 +52,29 @@ export default class App extends React.Component {
         });
     }
 
+
     render(){  
         return (
         <View style={styles.container}>
-          <Text>Open up App.js to start alsdfjals;dfjlasdfj on your app!</Text>
+          <Text style={styles.counterText}>{this.state.min_Counter} : {this.state.sec_Counter}</Text>
+
+          <TouchableOpacity
+            onPress={this.onButtonStart}
+            activeOpacity={0.6}
+            style={[styles.button, {backgroundColor: 'FF6F00'}]} >
+            <Text style={styles.buttonText}>STOP</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+             onPress={this.onButtonClear}
+             activeOpacity={0.6}
+             style={[styles.button, { backgroundColor: this.state.startDisable ? '#B0BEC5' : '#FF6F00' }]} 
+             disabled={this.state.startDisable} >
+
+          <Text style={styles.buttonText}> CLEAR </Text>
+
+        </TouchableOpacity>
+
         </View>
       );
     }
-
-    }
+}
