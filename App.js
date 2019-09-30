@@ -1,15 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 
-    
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-  });
 
 export default class App extends React.Component {
     constructor(props) {
@@ -57,13 +48,17 @@ export default class App extends React.Component {
         return (
         <View style={styles.container}>
           <Text style={styles.counterText}>{this.state.min_Counter} : {this.state.sec_Counter}</Text>
-
           <TouchableOpacity
             onPress={this.onButtonStart}
             activeOpacity={0.6}
-            style={[styles.button, {backgroundColor: 'FF6F00'}]} >
-            <Text style={styles.buttonText}>STOP</Text>
-            </TouchableOpacity>
+            style={[styles.button, { backgroundColor: this.state.startDisable ? '#B0BEC5' : '#FF6F00' }]}
+            disabled={this.state.startDisable}> 
+          <Text style={styles.buttonText}> START </Text></TouchableOpacity>
+          <TouchableOpacity
+            onPress={this.onButtonStop}
+            activeOpacity={0.6}
+            style={[styles.button, {backgroundColor: '#FF6F00'}]} >
+            <Text style={styles.buttonText}>STOP</Text></TouchableOpacity>
             <TouchableOpacity
              onPress={this.onButtonClear}
              activeOpacity={0.6}
@@ -78,3 +73,29 @@ export default class App extends React.Component {
       );
     }
 }
+
+const styles = StyleSheet.create({
+    MainContainer: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#F5FCFF',
+    },
+    button: {
+      width: '80%',
+      paddingTop:8,
+      paddingBottom:8,
+      borderRadius:7,
+      marginTop: 10
+    },
+    buttonText:{
+        color:'#fff',
+        textAlign:'center',
+        fontSize: 20
+    },
+    counterText:{
+   
+      fontSize: 28,
+      color: '#000'
+    }
+  });
